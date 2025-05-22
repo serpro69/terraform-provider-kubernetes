@@ -1,4 +1,0 @@
-resources {
-  limits   = {}
-  requests = {}
-}

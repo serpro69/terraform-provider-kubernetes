@@ -1,6 +1,3 @@
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
-
 package provider
 
 import (
@@ -13,8 +10,6 @@ import (
 	"github.com/hashicorp/terraform-plugin-framework/provider/schema"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/types"
-	"github.com/hashicorp/terraform-provider-kubernetes/internal/framework/provider/authenticationv1"
-	"github.com/hashicorp/terraform-provider-kubernetes/internal/framework/provider/certificatesv1"
 	pfunctions "github.com/hashicorp/terraform-provider-kubernetes/internal/framework/provider/functions"
 )
 
@@ -200,10 +195,7 @@ func (p *KubernetesProvider) DataSources(ctx context.Context) []func() datasourc
 }
 
 func (p *KubernetesProvider) EphemeralResources(ctx context.Context) []func() ephemeral.EphemeralResource {
-	return []func() ephemeral.EphemeralResource{
-		authenticationv1.NewTokenRequestEphemeralResource,
-		certificatesv1.NewCertificateSigningRequestEphemeralResource,
-	}
+	return []func() ephemeral.EphemeralResource{}
 }
 
 func (p *KubernetesProvider) Functions(ctx context.Context) []func() function.Function {
